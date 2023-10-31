@@ -5,6 +5,7 @@ import static org.junit.platform.commons.util.StringUtils.containsWhitespace;
 import static racingcar.constants.MessageConstant.INVALID_CAR_NAME_MESSAGE;
 import static racingcar.constants.MessageConstant.MOVE_TRAIL_INDICATOR;
 import static racingcar.constants.MessageConstant.PRINT_CAR_INFO_FORMAT;
+import static racingcar.constants.NumberConstant.INITIAL_MOVE_COUNT;
 import static racingcar.constants.NumberConstant.MAXIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MINIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MOVING_FORWARD_LENGTH;
@@ -15,7 +16,7 @@ public class Car {
     private final int move;
 
     public static Car of(final String name) {
-        return new Car(name, 0);
+        return new Car(name, INITIAL_MOVE_COUNT);
     }
 
     private Car(final String name, final int move) {
