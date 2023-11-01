@@ -1,7 +1,6 @@
 package racingcar.domain;
 
 import static java.lang.String.format;
-import static org.junit.platform.commons.util.StringUtils.containsWhitespace;
 import static racingcar.constants.MessageConstant.INVALID_CAR_NAME_MESSAGE;
 import static racingcar.constants.MessageConstant.MOVE_TRAIL_INDICATOR;
 import static racingcar.constants.MessageConstant.PRINT_CAR_INFO_FORMAT;
@@ -68,7 +67,7 @@ public class Car {
     }
 
     private boolean hasBlank(final String name) {
-        return containsWhitespace(name);
+        return name.chars().anyMatch(Character::isWhitespace);
     }
 
     @Override
