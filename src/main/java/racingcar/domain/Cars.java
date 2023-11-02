@@ -1,8 +1,8 @@
 package racingcar.domain;
 
 import static java.util.stream.Collectors.toList;
-import static racingcar.constants.MessageConstant.ERROR_MAXIMUM_VALUE_CALCULATION;
-import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
+import static racingcar.constants.Message.ERROR_MAXIMUM_VALUE_CALCULATION;
+import static racingcar.constants.Message.INVALID_INPUT_MESSAGE;
 import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
 import static racingcar.utils.Converter.convertToCarList;
 import static racingcar.utils.Randoms.pickNumberInRange;
@@ -50,7 +50,7 @@ public class Cars {
         return cars.stream()
                 .map(Car::getMove)
                 .max(Integer::compare)
-                .orElseThrow(() -> new IllegalArgumentException(ERROR_MAXIMUM_VALUE_CALCULATION));
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MAXIMUM_VALUE_CALCULATION.getMessage()));
     }
 
     private void moveConditional(final int index) {
@@ -77,13 +77,13 @@ public class Cars {
 
     private void checkInput(final List<String> names) {
         if (names.isEmpty()) {
-            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE.getMessage());
         }
     }
 
     private void checkDuplicate(final List<String> names) {
         if (hasDuplicate(names)) {
-            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
+            throw new IllegalArgumentException(INVALID_INPUT_MESSAGE.getMessage());
         }
     }
 

@@ -1,7 +1,7 @@
 package racingcar.utils;
 
 import static java.util.stream.Collectors.toList;
-import static racingcar.constants.MessageConstant.INPUT_SEPARATOR;
+import static racingcar.constants.Message.INPUT_SEPARATOR;
 
 import java.util.Arrays;
 import java.util.List;
@@ -23,6 +23,6 @@ public class Converter {
     }
 
     private static String[] splitBySeparator(final String input) {
-        return input.split(INPUT_SEPARATOR);
+        return input.split(INPUT_SEPARATOR.getMessage());
     }
 }

@@ -1,13 +1,14 @@
 package racingcar.domain;
 
 import static java.lang.String.format;
-import static racingcar.constants.MessageConstant.INVALID_CAR_NAME_MESSAGE;
-import static racingcar.constants.MessageConstant.MOVE_TRAIL_INDICATOR;
-import static racingcar.constants.MessageConstant.PRINT_CAR_INFO_FORMAT;
+import static racingcar.constants.Message.INVALID_CAR_NAME_MESSAGE;
+import static racingcar.constants.Message.MOVE_TRAIL_INDICATOR;
 import static racingcar.constants.NumberConstant.INITIAL_MOVE_COUNT;
 import static racingcar.constants.NumberConstant.MAXIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MINIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MOVEMENT_COUNT;
+
+import racingcar.constants.Message;
 
 public class Car {
 
@@ -37,7 +38,7 @@ public class Car {
     }
 
     public String receiveMoveTrail() {
-        return MOVE_TRAIL_INDICATOR.repeat(move);
+        return MOVE_TRAIL_INDICATOR.getMessage().repeat(move);
     }
 
     public boolean compare(final int forwardCount) {
@@ -51,7 +52,7 @@ public class Car {
 
     private void checkLength(final String name) {
         if (isNameLengthOutOfRange(name)) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
+            throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE.getMessage());
         }
     }
 
@@ -62,7 +63,7 @@ public class Car {
 
     private void checkInput(final String name) {
         if (hasBlank(name)) {
-            throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE);
+            throw new IllegalArgumentException(INVALID_CAR_NAME_MESSAGE.getMessage());
         }
     }
 
@@ -72,6 +73,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return format(PRINT_CAR_INFO_FORMAT, name, receiveMoveTrail());
+        return format(Message.PRINT_CAR_INFO_FORMAT.getMessage(), name, receiveMoveTrail());
     }
 }

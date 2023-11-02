@@ -1,6 +1,6 @@
 package racingcar.service;
 
-import static racingcar.constants.MessageConstant.WINNER_NAME_SEPARATOR;
+import static racingcar.constants.Message.WINNER_NAME_SEPARATOR;
 
 import java.util.List;
 import racingcar.domain.Cars;
@@ -17,6 +17,6 @@ public class CarGameService {
     }
 
     private static String joinWinnerNames(final List<String> winnerNames) {
-        return String.join(WINNER_NAME_SEPARATOR, winnerNames);
+        return String.join(WINNER_NAME_SEPARATOR.getMessage(), winnerNames);
     }
 }

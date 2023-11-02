@@ -1,32 +1,32 @@
 package racingcar.view;
 
 import static java.lang.String.format;
-import static racingcar.constants.MessageConstant.ASK_ATTEMPT;
-import static racingcar.constants.MessageConstant.BLANK_STRING;
-import static racingcar.constants.MessageConstant.FINAL_WINNER;
-import static racingcar.constants.MessageConstant.GAME_RESULT;
-import static racingcar.constants.MessageConstant.PRINT_FINAL_WINNER_FORMAT;
-import static racingcar.constants.MessageConstant.PRINT_GAME_RESULT_FORMAT;
-import static racingcar.constants.MessageConstant.START_GAME;
+import static racingcar.constants.Message.ASK_ATTEMPT;
+import static racingcar.constants.Message.BLANK_STRING;
+import static racingcar.constants.Message.FINAL_WINNER;
+import static racingcar.constants.Message.GAME_RESULT;
+import static racingcar.constants.Message.PRINT_FINAL_WINNER_FORMAT;
+import static racingcar.constants.Message.PRINT_GAME_RESULT_FORMAT;
+import static racingcar.constants.Message.START_GAME;
 
 import racingcar.domain.Cars;
 
 public class OutputView {
 
     public static void printStartGame() {
-        println(START_GAME);
+        println(START_GAME.getMessage());
     }
 
     public static void printAskAttempt() {
-        println(ASK_ATTEMPT);
+        println(ASK_ATTEMPT.getMessage());
     }
 
     public static void printGameResult() {
-        println(format(PRINT_GAME_RESULT_FORMAT, GAME_RESULT));
+        println(format(PRINT_GAME_RESULT_FORMAT.getMessage(), GAME_RESULT.getMessage()));
     }
 
     public static void printFinalWinner(final String winner) {
-        print(format(PRINT_FINAL_WINNER_FORMAT, FINAL_WINNER, winner));
+        print(format(PRINT_FINAL_WINNER_FORMAT.getMessage(), FINAL_WINNER.getMessage(), winner));
     }
 
     public static void printRank(final Cars cars) {
@@ -45,6 +45,6 @@ public class OutputView {
     }
 
     private static void println() {
-        println(BLANK_STRING);
+        println(BLANK_STRING.getMessage());
     }
 }
