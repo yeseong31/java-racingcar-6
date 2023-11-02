@@ -1,5 +1,6 @@
 package racingcar.controller;
 
+import static racingcar.utils.Console.close;
 import static racingcar.utils.Converter.convertToCars;
 
 import racingcar.domain.Cars;
@@ -25,6 +26,11 @@ public class CarGameController {
 
         executeGame(cars, attempt);
         showWinner(cars);
+        terminateGame();
+    }
+
+    private void terminateGame() {
+        close();
     }
 
     private void showWinner(final Cars cars) {
