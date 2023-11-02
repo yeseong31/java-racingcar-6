@@ -7,7 +7,7 @@ import static racingcar.constants.MessageConstant.PRINT_CAR_INFO_FORMAT;
 import static racingcar.constants.NumberConstant.INITIAL_MOVE_COUNT;
 import static racingcar.constants.NumberConstant.MAXIMUM_CAR_NAME_LENGTH;
 import static racingcar.constants.NumberConstant.MINIMUM_CAR_NAME_LENGTH;
-import static racingcar.constants.NumberConstant.MOVING_FORWARD_LENGTH;
+import static racingcar.constants.NumberConstant.MOVEMENT_COUNT;
 
 public class Car {
 
@@ -33,7 +33,7 @@ public class Car {
     }
 
     public Car increaseMove() {
-        return new Car(name, move + MOVING_FORWARD_LENGTH);
+        return new Car(name, move + MOVEMENT_COUNT);
     }
 
     public String receiveMoveTrail() {
