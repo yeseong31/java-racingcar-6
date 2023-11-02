@@ -13,38 +13,38 @@ import racingcar.domain.Cars;
 
 public class OutputView {
 
-    public void printStartGame() {
+    public static void printStartGame() {
         println(START_GAME);
     }
 
-    public void printAskAttempt() {
+    public static void printAskAttempt() {
         println(ASK_ATTEMPT);
     }
 
-    public void printGameResult() {
+    public static void printGameResult() {
         println(format(PRINT_GAME_RESULT_FORMAT, GAME_RESULT));
     }
 
-    public void printFinalWinner(final String winner) {
+    public static void printFinalWinner(final String winner) {
         print(format(PRINT_FINAL_WINNER_FORMAT, FINAL_WINNER, winner));
     }
 
-    public void printRank(final Cars cars) {
+    public static void printRank(final Cars cars) {
         for (String carInfo : cars.receiveCurrentRank()) {
             println(carInfo);
         }
         println();
     }
 
-    private void print(final String message) {
+    private static void print(final String message) {
         System.out.print(message);
     }
 
-    private void println(final String message) {
+    private static void println(final String message) {
         System.out.println(message);
     }
 
-    private void println() {
+    private static void println() {
         println(BLANK_STRING);
     }
 }

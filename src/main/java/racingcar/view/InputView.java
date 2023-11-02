@@ -7,11 +7,11 @@ import static racingcar.utils.Console.readLine;
 
 public class InputView {
 
-    public String readCarNames() {
+    public static String readCarNames() {
         return readLine();
     }
 
-    public int readAttempt() {
+    public static int readAttempt() {
         try {
             String attempt = readLine();
             validate(attempt);
@@ -21,18 +21,18 @@ public class InputView {
         }
     }
 
-    private void validate(final String attempt) {
+    private static void validate(final String attempt) {
         validateInput(attempt);
     }
 
-    private void validateInput(final String attempt) {
+    private static void validateInput(final String attempt) {
         for (int index = 0; index < attempt.length(); index++) {
             char target = attempt.charAt(index);
             checkInteger(target);
         }
     }
 
-    private void checkInteger(final char target) {
+    private static void checkInteger(final char target) {
         if (!isDigit(target)) {
             throw new IllegalArgumentException(INVALID_INPUT_MESSAGE);
         }

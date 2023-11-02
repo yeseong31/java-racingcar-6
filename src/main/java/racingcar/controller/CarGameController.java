@@ -1,26 +1,22 @@
 package racingcar.controller;
 
+import static racingcar.service.CarGameService.applyMovingForward;
+import static racingcar.service.CarGameService.receiveWinnerNames;
 import static racingcar.utils.Console.close;
 import static racingcar.utils.Converter.convertToCars;
+import static racingcar.view.InputView.readAttempt;
+import static racingcar.view.InputView.readCarNames;
+import static racingcar.view.OutputView.printAskAttempt;
+import static racingcar.view.OutputView.printFinalWinner;
+import static racingcar.view.OutputView.printGameResult;
+import static racingcar.view.OutputView.printRank;
+import static racingcar.view.OutputView.printStartGame;
 
 import racingcar.domain.Cars;
-import racingcar.service.CarGameService;
-import racingcar.view.InputView;
-import racingcar.view.OutputView;
 
 public class CarGameController {
 
-    private final CarGameService carGameService;
-    private final InputView inputView;
-    private final OutputView outputView;
-
-    public CarGameController(CarGameService carGameService, InputView inputView, OutputView outputView) {
-        this.carGameService = carGameService;
-        this.inputView = inputView;
-        this.outputView = outputView;
-    }
-
-    public void start() {
+    public static void start() {
         Cars cars = receiveCars();
         int attempt = receiveAttempt();
 
@@ -29,32 +25,32 @@ public class CarGameController {
         terminateGame();
     }
 
-    private void terminateGame() {
+    private static void terminateGame() {
         close();
     }
 
-    private void showWinner(final Cars cars) {
-        String result = carGameService.receiveWinnerNames(cars);
-        outputView.printFinalWinner(result);
+    private static void showWinner(final Cars cars) {
+        String result = receiveWinnerNames(cars);
+        printFinalWinner(result);
     }
 
-    private void executeGame(final Cars cars, final int attempt) {
-        outputView.printGameResult();
+    private static void executeGame(final Cars cars, final int attempt) {
+        printGameResult();
 
         for (int iteration = 0; iteration < attempt; iteration++) {
-            carGameService.applyMovingForward(cars);
-            outputView.printRank(cars);
+            applyMovingForward(cars);
+            printRank(cars);
         }
     }
 
-    private int receiveAttempt() {
-        outputView.printAskAttempt();
-        return inputView.readAttempt();
+    private static int receiveAttempt() {
+        printAskAttempt();
+        return readAttempt();
     }
 
-    private Cars receiveCars() {
-        outputView.printStartGame();
-        String input = inputView.readCarNames();
+    private static Cars receiveCars() {
+        printStartGame();
+        String input = readCarNames();
         return convertToCars(input);
     }
 }
