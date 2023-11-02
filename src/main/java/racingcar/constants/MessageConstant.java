@@ -18,6 +18,7 @@ public class MessageConstant {
     public static final String PRINT_FINAL_WINNER_FORMAT = "%s : %s";
     public static final String PRINT_GAME_RESULT_FORMAT = "\n%s";
     public static final String START_GAME = "경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)";
+    public static final String ERROR_MAXIMUM_VALUE_CALCULATION = "최댓값 계산 중 오류가 발생했씁니다.";
 
     private MessageConstant() {
     }

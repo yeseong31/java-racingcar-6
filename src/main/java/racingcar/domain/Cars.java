@@ -1,6 +1,7 @@
 package racingcar.domain;
 
 import static java.util.stream.Collectors.toList;
+import static racingcar.constants.MessageConstant.ERROR_MAXIMUM_VALUE_CALCULATION;
 import static racingcar.constants.MessageConstant.INVALID_INPUT_MESSAGE;
 import static racingcar.constants.NumberConstant.RANDOM_NUMBER_LIMIT;
 import static racingcar.utils.Converter.convertToCarList;
@@ -49,7 +50,7 @@ public class Cars {
         return cars.stream()
                 .map(Car::getMove)
                 .max(Integer::compare)
-                .orElseThrow();
+                .orElseThrow(() -> new IllegalArgumentException(ERROR_MAXIMUM_VALUE_CALCULATION));
     }
 
     private void moveConditional(final int index) {
